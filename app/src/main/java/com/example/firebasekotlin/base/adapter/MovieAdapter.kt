@@ -1,11 +1,11 @@
-package com.example.firebasekotlin.adapter
+package com.example.firebasekotlin.base.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import com.example.firebasekotlin.R
-import com.example.firebasekotlin.data.db.MovieDBO
+import com.example.firebasekotlin.data.database.movie.MovieDBO
 import com.example.firebasekotlin.databinding.MovieListItemBinding
 
 class MovieAdapter : ListAdapter<MovieDBO, BaseVH>(MovieDBO.itemCallback) {

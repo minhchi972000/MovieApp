@@ -1,10 +1,10 @@
-package com.example.firebasekotlin.fragment.detail
+package com.example.firebasekotlin.ui.fragment.detail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.firebasekotlin.data.db.MovieDBO
+import com.example.firebasekotlin.data.database.movie.MovieDBO
 
-class DetailVM: ViewModel() {
+class DetailVM : ViewModel() {
 
     /*val getSelectedItem: LiveData<MovieDBO> get() = mutableSelectedItem
     private val mutableSelectedItem = MutableLiveData<MovieDBO>()
@@ -13,5 +13,5 @@ class DetailVM: ViewModel() {
     }*/
 
     val selectedItemLiveData = MutableLiveData<MovieDBO>()
-    //var selectedItem : MovieDBO? = null
+    var selectedItem: MovieDBO? = null
 }

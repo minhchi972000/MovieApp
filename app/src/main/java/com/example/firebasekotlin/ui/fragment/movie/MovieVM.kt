@@ -1,11 +1,11 @@
-package com.example.firebasekotlin.fragment.home
+package com.example.firebasekotlin.ui.fragment.movie
 
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.firebasekotlin.data.db.MovieDBO
-import com.example.firebasekotlin.data.db.roomDB
+import com.example.firebasekotlin.data.database.movie.MovieDBO
+import com.example.firebasekotlin.data.database.roomDB
 import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -18,8 +18,6 @@ class MovieVM : ViewModel() {
     val movieListLiveData get() = roomDB.movieDao().liveData()
 
     private val errorLiveData = MutableLiveData<String>()
-
-
 
     fun syncDataMovie() {
         val db = Firebase.firestore
@@ -51,7 +49,6 @@ class MovieVM : ViewModel() {
 
         }
     }
-
 
     fun updateData(title: String, description: String, vote: Double) {
         val db = Firebase.firestore

@@ -1,5 +1,4 @@
-package com.example.firebasekotlin.fragment.home
-
+package com.example.firebasekotlin.ui.fragment.movie
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -14,15 +13,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.firebasekotlin.R
-import com.example.firebasekotlin.adapter.MovieAdapter
-import com.example.firebasekotlin.data.db.MovieDBO
+import com.example.firebasekotlin.base.adapter.MovieAdapter
+import com.example.firebasekotlin.data.database.movie.MovieDBO
 import com.example.firebasekotlin.databinding.MovieListBinding
-import com.example.firebasekotlin.fragment.detail.DetailVM
-
+import com.example.firebasekotlin.ui.fragment.detail.DetailVM
 
 class MovieFragment : Fragment() {
 
@@ -58,25 +55,14 @@ class MovieFragment : Fragment() {
     }
 
     private fun setUpMovieList() {
-        val lm = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+        val lm = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         vb.recyclerViewMovie.layoutManager = lm
         vb.recyclerViewMovie.adapter = adapter
 
         adapter.onItemClick = { movie ->
-            println(movie.title)
-            Log.d("movieFragment", "${movie.title}")
-            Log.d("movie", "${movie.vote.toString().toDouble()}")
-
-//            val bundle = bundleOf(
-//                "movieTitle" to movie.title,
-//                "movieDescription" to movie.description,
-//                "movieBackground" to movie.background,
-//                "movievote" to movie.vote.toString(),
-//            )
-//
-            detailVM.selectedItemLiveData.value = movie
-           // detailVM.selectedItem =movie
-            findNavController().navigate(R.id.action_movieFragment_to_detailFragment)
+            //  detailVM.selectedItemLiveData.value = movie
+            // detailVM.selectedItem =movie
+            // findNavController().navigate(R.id.action_movieFragment_to_detailFragment)
 
         }
 
@@ -87,7 +73,7 @@ class MovieFragment : Fragment() {
         }
     }
 
-    private fun onItemLongClick(movie: MovieDBO){
+    private fun onItemLongClick(movie: MovieDBO) {
 
         val dialogLayout = layoutInflater.inflate(R.layout.movie_list_item_longclick, null)
         val edtMovieTitle: EditText = dialogLayout.findViewById(R.id.edtTitleMovie)

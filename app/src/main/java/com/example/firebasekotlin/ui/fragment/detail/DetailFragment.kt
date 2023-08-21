@@ -1,4 +1,4 @@
-package com.example.firebasekotlin.fragment.detail
+package com.example.firebasekotlin.ui.fragment.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.firebasekotlin.databinding.DetailListBinding
+import com.example.firebasekotlin.databinding.DetailBinding
 
 class DetailFragment : Fragment() {
 
-    lateinit var vb: DetailListBinding
+    lateinit var vb: DetailBinding
     private val detailVM: DetailVM by lazy {
         ViewModelProvider(requireActivity()).get(DetailVM::class.java)
     }
@@ -20,7 +20,7 @@ class DetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        vb = DetailListBinding.inflate(inflater, container, false)
+        vb = DetailBinding.inflate(inflater, container, false)
         return vb.root
     }
 
@@ -33,7 +33,7 @@ class DetailFragment : Fragment() {
             vb.txtMovieDescription.text = it.description.toString()
             vb.txtvote.text = it.vote.toString()
 
-            val imgBackground =it.background.toString()
+            val imgBackground = it.background.toString()
 
             val urlImage = "https://image.tmdb.org/t/p/w500${imgBackground}"
             Glide.with(this).load(urlImage)

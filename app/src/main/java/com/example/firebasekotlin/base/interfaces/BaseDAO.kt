@@ -1,4 +1,4 @@
-package com.example.firebasekotlin.data.db
+package com.example.firebasekotlin.base.interfaces
 
 import androidx.room.*
 

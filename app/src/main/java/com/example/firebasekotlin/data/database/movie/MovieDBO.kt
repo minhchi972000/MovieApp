@@ -1,8 +1,9 @@
-package com.example.firebasekotlin.data.db
+package com.example.firebasekotlin.data.database.movie
 
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.room.*
+import com.example.firebasekotlin.base.interfaces.BaseDAO
 
 /**
  * DBO (Database object)
@@ -34,7 +35,7 @@ data class MovieDBO(
 
     //TODO: strick for like a pro
     @Dao
-    interface DAO :  BaseDAO<MovieDBO> {
+    interface DAO : BaseDAO<MovieDBO> {
         @Query("SELECT * FROM movies")
         fun liveData(): LiveData<List<MovieDBO>>
 
